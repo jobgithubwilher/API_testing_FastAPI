@@ -1,8 +1,8 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, conint
 
 
 class WageRequest(BaseModel):
-    years_of_experience: int
+    years_of_experience: conint(gt=0)  # Must be greater than 0
 
 
 class WageResponse(BaseModel):

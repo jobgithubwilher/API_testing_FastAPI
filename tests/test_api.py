@@ -10,14 +10,12 @@ client = TestClient(app)
     "years_of_experience, expected_wage",
     [
         (5, 40000),  # Normal case
-        (-2, 30000),  # Negative experience should return base salary
-        (0, 30000),  # Zero experience should return base salary
         (10, 50000),  # Higher experience case
         (100, 230000),  # Extreme case
     ],
 )
-def test_predict_wage(years_of_experience, expected_wage):
-    """Parameterized test for the API endpoint with multiple cases."""
+def test_predict_wage_valid_input(years_of_experience, expected_wage):
+    """Test valid inputs return expected wages."""
     response = client.post(
         "/predict_wage", json={"years_of_experience": years_of_experience}
     )
@@ -32,6 +30,8 @@ def test_predict_wage(years_of_experience, expected_wage):
 @pytest.mark.parametrize(
     "invalid_input",
     [
+        {"years_of_experience": -2},  # Negative experience fail
+        {"years_of_experience": 0},  # Zero experience should fail validation
         {"years_of_experience": "five"},  # String instead of integer
         {"years_of_experience": None},  # None value
         {"years_of_experience": 5.5},  # Float value
@@ -40,7 +40,7 @@ def test_predict_wage(years_of_experience, expected_wage):
     ],
 )
 def test_predict_wage_invalid_input(invalid_input):
-    """Test for invalid input cases."""
+    """Test that invalid inputs return validation errors (422)."""
     response = client.post("/predict_wage", json=invalid_input)
     assert (
         response.status_code == 422
@@ -48,9 +48,9 @@ def test_predict_wage_invalid_input(invalid_input):
     assert "detail" in response.json(), "Expected validation error message"
 
 
-@pytest.mark.parametrize("years_of_experience", [5, -2, 0, 10, 100])
+@pytest.mark.parametrize("years_of_experience", [5, 10, 100])
 def test_predict_wage_response_structure(years_of_experience):
-    """Test that response structure is correct."""
+    """Ensure that the API response has the correct structure."""
     response = client.post(
         "/predict_wage", json={"years_of_experience": years_of_experience}
     )
