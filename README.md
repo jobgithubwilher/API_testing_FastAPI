@@ -45,3 +45,11 @@ By default, when pytest runs, it doesn't automatically consider the project's ro
 ```
 PYTHONPATH=. pytest
 ```
+
+#### 5.Run Pre-commit Hooks
+
+To check the entire repository with pre-commit before committing:
+
+```
+pre-commit run --all-files
+```
