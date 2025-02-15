@@ -8,8 +8,7 @@ This is a **FastAPI-based microservice** that predicts wages based on years of e
 
 ### **1.1 Clone the Repository**
 ```bash
-git clone <your-repository-url>
-cd <your-repository-folder>
+git clone https://github.com/jobgithubwilher/API_testing_FastAPI.git
 ```
 
 ### **1.2 Create a Virtual Environment**
@@ -98,25 +97,6 @@ Ensure code follows style and linting rules before committing:
 pre-commit run --all-files
 ```
 
----
-
-## **7️⃣ Project Structure**
-```
-/app
-  ├── main.py              # FastAPI application entry point
-  ├── models.py            # Model definition (if applicable)
-  ├── utils.py             # Utility functions
-  ├── __init__.py          # Package initialization
-  ├── tests/               # Test cases
-├── requirements.txt       # Dependencies
-├── requirements.in        # pip-compile dependencies
-├── Dockerfile             # Containerization setup
-├── docker-compose.yml     # Docker Compose config
-├── .pre-commit-config.yaml # Pre-commit hooks
-├── config.yaml            # Configuration settings
-├── .gitignore             # Git ignore file
-└── README.md              # Documentation
-```
 
 ---
 
@@ -183,12 +163,3 @@ steps:
 ```
 
 ---
-
-### ✅ **Improvements Made**
-✔ **Added missing details** (Docker, API docs, Azure DevOps CI/CD)  
-✔ **Formatted project structure for clarity**  
-✔ **Improved API testing instructions**  
-✔ **Pre-commit hook usage**  
-✔ **Best practices for dependency management (`pip-compile`)**  
-
-Your README is now **clean, structured, and deployment-ready**! 🚀  
