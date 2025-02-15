@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs
+logs/
+*.log
+
+# Unit test / coverage reports
+.coverage
+htmlcov/
+pytest_cache/
+
+# IDE files
+.vscode/
+.idea/
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+# Docker files
+docker-compose.override.yml
+
+# Environment files
+.env
+.env.local
+.env.test
+.env.production
+
+# Ignore SQLite database files
+*.sqlite3
+
+# Ignore zip and archive files
+*.zip
+*.tar.gz
+*.tgz
+*.rar
